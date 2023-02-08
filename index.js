@@ -39,6 +39,13 @@ mongoose.connect(process.env.MONGO_URI, {
     console.log("Something went wrong with DB connection");
 });
 
+if (process.env.NODE_ENV === 'production') {
+    //*Set static folder up in production
+    app.use(express.static('client/build'));
+
+    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')));
+}
+
 // PORT and start server
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
