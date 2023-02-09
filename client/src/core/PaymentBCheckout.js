@@ -38,7 +38,7 @@ function PaymentBCheckout({ products, setReload = f => f, reload = undefined }) 
     const showbtdropIn = () => {
         return (
             <div>
-                {info.clientToken !== null && products.length > 0 && isAutheticated() ?
+                {info.clientToken !== null && products && products.length > 0 && isAutheticated() ?
                     (
                         <div>
                             <DropIn options={{ authorization: info.clientToken }} onInstance={instance => (info.instance = instance)} />

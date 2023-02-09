@@ -51,7 +51,7 @@ const StripeCheckout = ({ products, setReload = f => f, reload = undefined }) =>
     }
 
     const showStripeButton = () => {
-        return isAutheticated() && products.length > 0 ? (
+        return isAutheticated() && products && products.length > 0 ? (
             <StripeCheckoutButton stripeKey={process.env.REACT_APP_STRIPE_PUBLISH} token={makePayment} amount={getFinalPrice() * 100} name="Buy tshirts" billingAddress shippingAddress>
                 <button className="btn btn-block btn-success">Pay with stripe</button>
             </StripeCheckoutButton>
