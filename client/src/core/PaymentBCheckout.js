@@ -77,7 +77,7 @@ function PaymentBCheckout({ products, setReload = f => f, reload = undefined }) 
                         createOrder(userId, token, orderData)
 
                         cartEmpty(() => {
-                            console.log("Did we got a carsh ?")
+                            console.log("CART EMPTY")
                         });
                         setReload(!reload);
 

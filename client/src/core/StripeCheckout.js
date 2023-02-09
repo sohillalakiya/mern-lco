@@ -43,7 +43,9 @@ const StripeCheckout = ({ products, setReload = f => f, reload = undefined }) =>
             .then(response => {
                 const {status} = response;
                 console.log("STATUS ", status);
-                cartEmpty();
+                cartEmpty(() => {
+                    console.log("CART EMPTY ?")
+                });
             }).catch(err => console.log(err))
     }
 
